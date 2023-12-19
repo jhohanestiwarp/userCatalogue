@@ -27,6 +27,7 @@ export class AlbumListComponent {
 
   ngOnInit() {
     this.getAlbums();
+    console.log(this.albums)
   }
 
   getAlbums() {
@@ -35,6 +36,7 @@ export class AlbumListComponent {
     this._albumService.getAlbumAll().subscribe({
       next: (data: any) => {
         this.albums = data.splice(1, 50);
+        console.log(this.albums)
       },
       error: ({ e }: any) => console.log(e),
       complete: () => {
@@ -43,7 +45,15 @@ export class AlbumListComponent {
     });
   }
 
-  setPhoto(photo: any) {
-    this.photo = photo;
+  deletePais(id: string){
+    this._albumService.deleteAlbum(id).subscribe({
+      next: (data: any) => {
+        this.getAlbums();
+      },
+      error: ({ e }: any) => console.log(e),
+      complete: () => {
+        this.loading = false;
+      },
+    });
   }
 }

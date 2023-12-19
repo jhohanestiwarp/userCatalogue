@@ -9,9 +9,10 @@ import { PhotoVewComponent } from './components/photo-vew/photo-vew.component';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PaisNewComponent } from './pais-new/pais-new.component';
 
 @NgModule({
-  declarations: [AlbumListComponent, PhotoVewComponent],
+  declarations: [AlbumListComponent, PhotoVewComponent, PaisNewComponent],
   imports: [
     CommonModule,
     AlbumRoutingModule,
